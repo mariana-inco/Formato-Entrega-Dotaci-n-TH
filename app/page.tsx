@@ -78,8 +78,8 @@ type DatosFormulario = z.infer<typeof esquemasValidacion>;
 const opcionesDotacion = [
   'Dotación de ingreso',
   'Dotación trimestral abril',
-  'Dotación trimestral agosto ',
-  'Dotacion trimestral diciembre',
+  'Dotación trimestral agosto',
+  'Dotación trimestral diciembre',
 ];
 
 function FormularioEntregaDotacion() {
@@ -150,7 +150,6 @@ function FormularioEntregaDotacion() {
       return;
     }
 
-    // Si la validación es correcta, agregar el artículo
     agregarArticulo({
       nombreArticulo: limpiarSoloLetras(camposArticuloTemporal.nombreArticulo).trim(),
       talla: camposArticuloTemporal.talla.trim(),
@@ -158,7 +157,6 @@ function FormularioEntregaDotacion() {
       tipoDeNotacion: camposArticuloTemporal.tipoDeNotacion,
     });
 
-    // Limpiar campos temporales
     setCamposArticuloTemporal({
       nombreArticulo: '',
       talla: '',
@@ -170,7 +168,7 @@ function FormularioEntregaDotacion() {
   };
 
   const manejarEnvio = (datos: DatosFormulario) => {
-    console.log('Datos del formulario:', datos);
+    console.log(JSON.stringify(datos, null, 2));
     alert('Formulario enviado correctamente. Revisa la consola para ver los datos.');
   };
 
